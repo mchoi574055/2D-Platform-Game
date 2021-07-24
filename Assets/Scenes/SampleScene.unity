@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 53530781}
   - component: {fileID: 53530785}
   - component: {fileID: 53530784}
+  - component: {fileID: 53530786}
   m_Layer: 0
   m_Name: OrcSlinger_Walking_W0002
   m_TagString: Untagged
@@ -274,6 +275,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7944573, y: 0.6641093}
   m_EdgeRadius: 0
+--- !u!114 &53530786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53530780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded2a85b831bfb3419875b7c3864907c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1002108217
 GameObject:
   m_ObjectHideFlags: 0
