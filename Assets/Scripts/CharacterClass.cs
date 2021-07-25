@@ -5,12 +5,13 @@ using UnityEngine;
 public class CharacterClass : MonoBehaviour
 {
     Vector2 _initialPos;
-
+    Rigidbody2D _rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().isKinematic = true;
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.isKinematic = false;
         _initialPos = new Vector2(0, 0);
         transform.position = _initialPos;
     }
@@ -18,7 +19,23 @@ public class CharacterClass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.D))
+        {
+            Debug.Log("D key was pressed");
+            moveRight();
+        }
 
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log("S key was pressed");
+            moveDown();
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            Debug.Log("A key was pressed");
+            moveLeft();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -30,5 +47,22 @@ public class CharacterClass : MonoBehaviour
     {
         Vector3 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = movePos;
+    }
+
+    private void moveRight()
+    {
+        _rb.velocity = new Vector3(10, 0, 0);
+    }
+
+
+    private void moveDown()
+    {
+        
+    }
+
+
+    private void moveLeft()
+    {
+
     }
 }
