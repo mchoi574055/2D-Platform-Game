@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterClass : MonoBehaviour
 {
+    /*
     Vector2 _initialPos;
     Rigidbody2D _rb;
 
@@ -65,4 +66,5 @@ public class CharacterClass : MonoBehaviour
     {
 
     }
+    */
 }
