@@ -248,7 +248,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &53530785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -381,6 +381,8 @@ GameObject:
   - component: {fileID: 2143667647}
   - component: {fileID: 2143667646}
   - component: {fileID: 2143667648}
+  - component: {fileID: 2143667651}
+  - component: {fileID: 2143667650}
   - component: {fileID: 2143667649}
   - component: {fileID: 2143667651}
   - component: {fileID: 2143667650}
