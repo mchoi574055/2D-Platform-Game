@@ -7,13 +7,17 @@ public class CharacterClass : MonoBehaviour
     
     Vector2 _initialPos;
     Rigidbody2D _rb;
-
+    
+    public bool Grounded;
+    public bool canDoubleJump;
     // DEFINE VELOCITY VALUES
     Vector2 rightVelocity;
     Vector2 leftVelocity;
     Vector2 downVelocity;
     Vector2 upVelocity;
-
+    int jumped = 0;
+    Vector2 testVelocity;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +29,12 @@ public class CharacterClass : MonoBehaviour
         transform.position = _initialPos;
 
         // INITIALIZE VELOCITY VALUES
-        rightVelocity = new Vector2(5, 0);
-        leftVelocity = new Vector2(-5, 0);
-        downVelocity = new Vector2(0, -5);
-        upVelocity = new Vector2(0, 5);
+        rightVelocity = new Vector2(7, 0);
+        leftVelocity = new Vector2(-7, 0);
+        downVelocity = new Vector2(0, -6);
+        upVelocity = new Vector2(0, 6);
+        testVelocity = new Vector2(0, 0);
+    
     }
 
     // Update is called once per frame
@@ -54,13 +60,42 @@ public class CharacterClass : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("Space key was pressed");
-            moveUp();
+            if (Grounded)
+            {
+                Debug.Log("Space key was pressed");
+                moveUp();
+                Grounded = false;
+            }
+
+            else if (canDoubleJump)
+            {
+                doubleJump();
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && jumped == 1)
+        {
+            Debug.Log("Space key was released");
+            canDoubleJump = true;
+        }
+
+        if (Grounded)
+        {
+            canDoubleJump = false;
+            jumped = 0;
         }
     }
 
+<<<<<<< Updated upstream
 
+=======
+    void OnCollisionEnter2D()
+    {
+        Grounded = true;
+    }
+>>>>>>> Stashed changes
 
+    
     private void OnMouseDrag()
     {
         //Vector3 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -89,7 +124,9 @@ public class CharacterClass : MonoBehaviour
     private void moveRight()
     {
         if (_rb.velocity.x < rightVelocity.x)
-            _rb.velocity = rightVelocity;
+        {
+            _rb.AddForce(rightVelocity);
+        }
 
     }
 
@@ -98,18 +135,31 @@ public class CharacterClass : MonoBehaviour
     {
         if (_rb.velocity.y > downVelocity.y)
             _rb.velocity = downVelocity;
+        
     }
 
 
     private void moveLeft()
     {
         if (_rb.velocity.x > leftVelocity.x)
-            _rb.velocity = leftVelocity;
+        {
+            _rb.AddForce(leftVelocity);
+        }
     }
     
     private void moveUp()
     {
-        if (_rb.velocity.y < upVelocity.y)
-            _rb.velocity = upVelocity;
+        jumped = 1;
+        _rb.velocity = testVelocity;
+        _rb.AddForce(transform.up*800);
+        
+    }
+
+    private void doubleJump()
+    {
+        canDoubleJump = false;
+        _rb.velocity = testVelocity;
+        _rb.AddForce(transform.up*600);
+        jumped = 0;
     }
 }
