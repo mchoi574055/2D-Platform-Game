@@ -22,10 +22,6 @@ public class CharacterClass : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _initialPos = new Vector2(0, 0);
-        jumpRightPos = new Vector2(200, 400);
-        jumpLeftPos = new Vector2(-200, 400);
-        jumpPos = new Vector2(0, 400);
         transform.position = _initialPos;
 
         // INITIALIZE VELOCITY VALUES
@@ -86,39 +82,16 @@ public class CharacterClass : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
-
-=======
     void OnCollisionEnter2D()
     {
         Grounded = true;
     }
->>>>>>> Stashed changes
 
     
     private void OnMouseDrag()
     {
         //Vector3 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //transform.position = movePos;
-        if (Input.GetKeyDown(KeyCode.A)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
-        }
-
-        if (Input.GetKeyUp(KeyCode.A)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
-        }
-
-        if (Input.GetKeyUp(KeyCode.D)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-              GetComponent<Rigidbody2D>().AddForce(jumpPos);
-        } 
     }
 
     private void moveRight()
