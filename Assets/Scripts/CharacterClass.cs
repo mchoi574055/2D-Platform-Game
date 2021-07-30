@@ -14,6 +14,11 @@ public class CharacterClass : MonoBehaviour
     Vector2 downVelocity;
     Vector2 upVelocity;
 
+    // DEFINE HEALTH VALUES
+    public int maxHealth;
+    public int currentHealth;
+    public HealthBar healthbar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,13 @@ public class CharacterClass : MonoBehaviour
         leftVelocity = new Vector2(-5, 0);
         downVelocity = new Vector2(0, -5);
         upVelocity = new Vector2(0, 5);
+
+        // INITIALIZE HEALTH VALUES
+        maxHealth = 100;
+        currentHealth = 100;
+        healthbar.SetMaxHealth(maxHealth);
+
+
     }
 
     // Update is called once per frame
@@ -53,6 +65,13 @@ public class CharacterClass : MonoBehaviour
         {
             Debug.Log("Space key was pressed");
             moveUp();
+        }
+
+        if (Input.GetKey(KeyCode.J))
+        {
+            Debug.Log("J key pressed");
+            currentHealth -= 2;
+            healthbar.SetHealth(currentHealth);
         }
     }
 
