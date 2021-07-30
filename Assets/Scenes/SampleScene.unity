@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grounded: 0
+  canDoubleJump: 0
 --- !u!1 &1002108217
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,11 +342,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-<<<<<<< Updated upstream
-  orthographic size: 9.895506
-=======
-  orthographic size: 9.959034
->>>>>>> Stashed changes
+  orthographic size: 13.884757
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -389,8 +386,6 @@ GameObject:
   - component: {fileID: 2143667651}
   - component: {fileID: 2143667650}
   - component: {fileID: 2143667649}
-  - component: {fileID: 2143667651}
-  - component: {fileID: 2143667650}
   m_Layer: 0
   m_Name: iyd8wogl43i11
   m_TagString: Untagged
