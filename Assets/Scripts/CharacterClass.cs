@@ -28,7 +28,7 @@ public class CharacterClass : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        transform.position = _initialPos;
+        // transform.position = _initialPos;
 
         // INITIALIZE VELOCITY VALUES
         rightVelocity = new Vector2(7, 0);
