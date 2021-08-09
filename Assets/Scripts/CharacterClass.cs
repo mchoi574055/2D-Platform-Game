@@ -93,10 +93,10 @@ public class CharacterClass : MonoBehaviour
             jumped = 0;
         }
 
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKeyUp(KeyCode.V))
         {
-            Debug.Log("J key pressed");
-            currentHealth -= 2;
+            Debug.Log("V key pressed");
+            currentHealth -= 1;
             healthbar.SetHealth(currentHealth);
         }
     }
