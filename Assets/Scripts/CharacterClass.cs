@@ -42,7 +42,6 @@ public class CharacterClass : MonoBehaviour
         currentHealth = 100;
         healthbar.SetMaxHealth(maxHealth);
 
-
     }
 
     // Update is called once per frame
@@ -93,7 +92,7 @@ public class CharacterClass : MonoBehaviour
             jumped = 0;
         }
 
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKeyUp(KeyCode.J))
         {
             Debug.Log("J key pressed");
             currentHealth -= 2;
@@ -106,12 +105,7 @@ public class CharacterClass : MonoBehaviour
         Grounded = true;
     }
 
-    
-    private void OnMouseDrag()
-    {
-        //Vector3 movePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //transform.position = movePos;
-    }
+  
 
     private void moveRight()
     {
