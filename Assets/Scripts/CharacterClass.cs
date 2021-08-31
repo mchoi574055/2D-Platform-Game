@@ -148,4 +148,9 @@ public class CharacterClass : MonoBehaviour
         _rb.AddForce(transform.up*600);
         jumped = 0;
     }
+
+    void castAbility1()
+    {
+
+    }
 }
